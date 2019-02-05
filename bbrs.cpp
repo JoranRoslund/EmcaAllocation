@@ -54,6 +54,15 @@ int BBRS::allocateBasebandResource(const TxDirection txDirection)
   // Add load to allocated EMCA
   emcaLoad[allocatedEmca] += cost[txDirection];
 
+  if (txDirection == DL_ONLY)
+  {
+    allocations[allocatedEmca].append("D");
+  }
+  else
+  {
+    allocations[allocatedEmca].append("U");
+  }
+
   return allocatedEmca;
 }
 
@@ -62,6 +71,7 @@ void BBRS::reset()
   for (int i=0; i<MAX_NUMBER_OF_EMCAS; ++i)
   {
     emcaLoad[i] = 0;
+    allocations[i] = "";
   }
   remainingUplinks = MAX_NUMBER_OF_UPLINKS;
 }
@@ -79,4 +89,12 @@ int BBRS::getMaxAllocation()
   }
 
   return maxSoFar;
+}
+
+void BBRS::reportStatus()
+{
+  for (int i=0; i<MAX_NUMBER_OF_EMCAS; ++i)
+  {
+    cout << i << " " << allocations[i] << endl;
+  }
 }
