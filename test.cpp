@@ -37,6 +37,7 @@ void unlock (vector<int> scList, BBRS &bbrs)
     cout << emca << "),";
   }
   cout << endl;
+  bbrs.reportStatus();
 }
 
 int RandomSector () { return (rand()%MAX_NUMBER_OF_SECTORS);}
