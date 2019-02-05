@@ -2,7 +2,7 @@
 #define __BBRS_H
 
 #define MAX_NUMBER_OF_EMCAS 4
-#define MAX_NUMBER_OF_UPLINKS 3
+#define MAX_NUMBER_OF_UPLINKS 6
 
 typedef enum TxDirection
 {

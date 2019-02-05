@@ -6,18 +6,16 @@
 #include <algorithm>
 #include <time.h>
 
-#define MAX_NUMBER_OF_SECTORS 3
-#define MAX_ALLOC 50
-#define MAX_NUMBER_OF_CELLS 8
+#define MAX_NUMBER_OF_SECTORS 6
+#define MAX_ALLOC 20
+#define MAX_NUMBER_OF_CELLS 16
 
 using namespace std;
-
-const int numberOfSc = 3;
 
 void unlock (vector<int> scList, BBRS &bbrs)
 {
   // Flag to check if it's the first time we unlock an SC in the sector
-  bool firstSc[MAX_NUMBER_OF_SECTORS] = {true, true, true};
+  bool firstSc[MAX_NUMBER_OF_SECTORS] = {true, true, true, true, true, true};
   TxDirection txDirection;
 
   for (vector<int>::iterator it = scList.begin(); it != scList.end(); ++it)

@@ -4,9 +4,9 @@
 #define DEFAULT_MIN 9999
 #define DEFAULT_INDEX 99
 
-#define UL_CAPABLE_COST 30
-#define DL_ONLY_COST 20
-#define PENALTY_COST 15
+#define UL_CAPABLE_COST 6
+#define DL_ONLY_COST 2
+#define PENALTY_COST 3
 
 using namespace std;
 
@@ -30,7 +30,7 @@ int BBRS::allocateBasebandResource(const TxDirection txDirection)
     // Check how many alternatives there are for the uplink on the other EMCAs
     for (int j=0; j<MAX_NUMBER_OF_EMCAS; ++j)
     {
-      if ((i != j) && (emcaLoad[j] < UL_CAPABLE_COST))
+      if ((i != j) && (emcaLoad[j] < 2*DL_ONLY_COST))
       {
 	++uplinkOpportunities;
       }
