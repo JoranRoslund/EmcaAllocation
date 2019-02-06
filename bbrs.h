@@ -17,14 +17,17 @@ class BBRS
 {
   public:
     BBRS() :
-      emcaLoad{0,0,0,0}, remainingUplinks(MAX_NUMBER_OF_UPLINKS) {};
+      emcaLoadUl{0,0,0,0}, 
+      emcaLoadDl{0,0,0,0},
+      remainingUplinks(MAX_NUMBER_OF_UPLINKS) {};
     int allocateBasebandResource(TxDirection);
     void reset();
     int getMaxAllocation();
     void reportStatus();
   
   private:
-    int emcaLoad[MAX_NUMBER_OF_EMCAS];
+    int emcaLoadUl[MAX_NUMBER_OF_EMCAS];
+    int emcaLoadDl[MAX_NUMBER_OF_EMCAS];
     int remainingUplinks;
     std::string allocations[MAX_NUMBER_OF_EMCAS];
 

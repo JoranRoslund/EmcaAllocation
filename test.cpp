@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define MAX_NUMBER_OF_SECTORS 6
-#define MAX_ALLOC 20
+#define MAX_ALLOC 4
 #define MAX_NUMBER_OF_CELLS 16
 
 using namespace std;
@@ -47,7 +47,7 @@ int main()
   srand(time(NULL));
   BBRS bbrs;
 
-  for (int i=0; i < 10000; ++i)
+  for (int i=0; i < 100000; ++i)
   {
     cout << i <<endl;
     const int numberOfSectors = rand()%MAX_NUMBER_OF_CELLS+1;
