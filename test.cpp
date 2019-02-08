@@ -15,7 +15,11 @@ using namespace std;
 void unlock (vector<int> scList, BBRS &bbrs)
 {
   // Flag to check if it's the first time we unlock an SC in the sector
+#if MAX_NUMBER_OF_SECTORS == 6
   bool firstSc[MAX_NUMBER_OF_SECTORS] = {true, true, true, true, true, true};
+#elif MAX_NUMBER_OF_SECTORS == 3
+  bool firstSc[MAX_NUMBER_OF_SECTORS] = {true, true, true};
+#endif
   TxDirection txDirection;
 
   for (vector<int>::iterator it = scList.begin(); it != scList.end(); ++it)

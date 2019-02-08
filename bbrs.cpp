@@ -24,7 +24,7 @@ int BBRS::allocateBasebandResource(const TxDirection txDirection)
       //If it is lower than the best alternative found so far, choose this EMCA.
       if (emcaLoadDl[i]< minLoad)
       {
-	minLoad = emcaLoadDl[i]+emcaLoadUl[i]/2;
+	minLoad = emcaLoadDl[i];
 	allocatedEmca = i;
       }
     }
@@ -35,13 +35,13 @@ int BBRS::allocateBasebandResource(const TxDirection txDirection)
   else
   {
     // Scan over EMCAs
-    for (int i=0; i<MAX_NUMBER_OF_EMCAS; ++i)
+    for (int i=MAX_NUMBER_OF_EMCAS-1; i>=0;--i)
     {
       // Compare the load of EMCA plus possible penalty.
       //If it is lower than the best alternative found so far, choose this EMCA.
       if (emcaLoadUl[i]< minLoad)
       {
-	minLoad = emcaLoadUl[i]+emcaLoadDl[i]/2;
+	minLoad = emcaLoadUl[i];
 	allocatedEmca = i;
       }
     }
